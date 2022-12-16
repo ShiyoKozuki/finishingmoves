@@ -31,11 +31,11 @@ local finishingmoves = T{
 	settings = settings.load(default_settings)
 };
 
-local UpdateSettings = function()
+local UpdateSettings = function(settings)
+  finishingmoves.settings = settings;
   if (finishingmoves.font ~= nil) then
-      finishingmoves.font:destroy();
+      finishingmoves.font:apply(finishingmoves.settings.font)
   end
-  finishingmoves.font = fonts.new(finishingmoves.settings.font);
 end
 
 local function GetFinishingMoves()
